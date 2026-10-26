@@ -174,17 +174,26 @@ nav {
   isolation: isolate;
 }
 
+
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -2;
   background:
-    linear-gradient(90deg, rgba(24,16,12,.96) 0%,
-    rgba(40,27,22,.77) 48%, rgba(40,27,22,.2) 100%),
-    linear-gradient(0deg, var(--dark), transparent 30%),
-    url("https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=2000&q=85")
-    center 42% / cover;
+    linear-gradient(
+      90deg,
+      rgba(25, 16, 12, 0.88) 0%,
+      rgba(25, 16, 12, 0.62) 42%,
+      rgba(25, 16, 12, 0.22) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(25, 16, 12, 0.95) 0%,
+      rgba(25, 16, 12, 0.12) 55%,
+      rgba(25, 16, 12, 0.25) 100%
+    ),
+    url("poster-film.jpg") center center / cover no-repeat;
   animation: heroZoom 12s ease-out forwards;
 }
 
@@ -692,13 +701,23 @@ footer {
     padding: 85px 7%;
   }
 
-  .hero::before {
-    background:
-      linear-gradient(90deg, rgba(24,16,12,.91), rgba(40,27,22,.42)),
-      linear-gradient(0deg, var(--dark), transparent 70%),
-      url("https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=1000&q=80")
-      center / cover;
-  }
+ 
+.hero::before {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(25, 16, 12, 0.72) 0%,
+      rgba(25, 16, 12, 0.35) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(25, 16, 12, 0.96) 0%,
+      rgba(25, 16, 12, 0.12) 70%,
+      rgba(25, 16, 12, 0.30) 100%
+    ),
+    url("poster-film.jpg") center center / cover no-repeat;
+}
+
 
   .hero h1 {
     font-size: clamp(4.2rem, 16vw, 7rem);
