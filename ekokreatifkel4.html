@@ -383,8 +383,8 @@ menjadi kenangan paling berharga.
 <script>
 /* PENGATURAN WEBSITE */
 const CONFIG = {
-  trailerId: "9LTRGFs3Pbk?si=EOG_O60WyuM8w-TT",
-  filmUrl: "https://www.youtube.com/@skselesaiproject/",
+  trailerId: "9LTRGFs3Pbk",
+  filmUrl: "https://youtu.be/9LTRGFs3Pbk",
   supportUrl: "https://www.youtube.com/@skselesaiproject",
   instagram: "https://www.instagram.com/sk4film_",
   tiktok: "https://www.tiktok.com/@ekokreatifkel4",
@@ -415,17 +415,20 @@ const modal = document.getElementById("trailerModal");
 const video = document.getElementById("trailerVideo");
 
 function openTrailer() {
-  if (!CONFIG.trailerId || CONFIG.trailerId === "YOUR_TRAILER_VIDEO_ID") {
-    alert("Trailer belum diatur. Masukkan ID video YouTube pada bagian CONFIG.");
+  const trailerId = CONFIG.trailerId;
+
+  if (!trailerId || trailerId === "YOUR_TRAILER_VIDEO_ID") {
+    alert("ID trailer belum diisi.");
     return;
   }
 
-  video.src = "https://www.youtube-nocookie.com/embed/" +
-    encodeURIComponent(CONFIG.trailerId) + "?autoplay=1&rel=0";
+  video.src =
+    "https://www.youtube.com/embed/" +
+    trailerId +
+    "?autoplay=1&rel=0";
 
   modal.classList.add("active");
   document.body.style.overflow = "hidden";
-  modal.querySelector(".modal-close").focus();
 }
 
 function closeTrailer() {
