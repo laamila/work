@@ -1,0 +1,830 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#281b16">
+<meta name="description" content="Temukan cerita di balik layar. Film pendek independen, sinema, dan cerita yang tinggal lebih lama.">
+<title>AFTERFRAME — Short Film</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --dark: #281b16;
+  --dark2: #35251d;
+  --brown: #76523d;
+  --caramel: #c7a789;
+  --cream: #f4ebdd;
+  --muted: #b6a18e;
+  --line: rgba(244,235,221,.15);
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "DM Sans", sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+
+body {
+  background: var(--dark);
+  color: var(--cream);
+  font-family: var(--sans);
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+img { max-width: 100%; display: block; }
+
+::selection { background: var(--caramel); color: var(--dark); }
+
+/* INTRO */
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  background: var(--dark);
+  animation: introOut 1s ease 1.4s forwards;
+  pointer-events: none;
+}
+.intro span {
+  font: 500 clamp(2.5rem, 8vw, 5rem) var(--serif);
+  letter-spacing: .22em;
+  animation: introText 1.1s ease both;
+}
+@keyframes introText {
+  from { opacity: 0; letter-spacing: .5em; }
+  to { opacity: 1; letter-spacing: .22em; }
+}
+@keyframes introOut {
+  to { opacity: 0; visibility: hidden; }
+}
+
+/* NAVIGATION */
+nav {
+  height: 78px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(40,27,22,.91);
+  backdrop-filter: blur(16px);
+}
+.logo {
+  font: 600 1.6rem var(--serif);
+  letter-spacing: .1em;
+}
+.logo span { color: var(--caramel); }
+.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-links a {
+  font-size: .75rem;
+  color: var(--muted);
+  transition: color .3s;
+}
+.nav-links a:hover { color: var(--cream); }
+.nav-cta {
+  padding: 11px 18px;
+  border: 1px solid var(--caramel);
+  color: var(--cream) !important;
+  transition: background .3s;
+}
+.nav-cta:hover { background: var(--brown); }
+
+/* HERO */
+.hero {
+  min-height: 690px;
+  min-height: min(790px, calc(100svh - 78px));
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 100px 10%;
+  isolation: isolate;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(90deg, rgba(24,16,12,.95) 0%,
+    rgba(40,27,22,.76) 48%, rgba(40,27,22,.18) 100%),
+    linear-gradient(0deg, var(--dark) 0%, transparent 30%),
+    url("https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=2000&q=85")
+    center 42% / cover;
+  transform: scale(1.04);
+  animation: heroZoom 12s ease-out forwards;
+}
+@keyframes heroZoom { to { transform: scale(1); } }
+
+.hero-content { max-width: 690px; }
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-transform: uppercase;
+  letter-spacing: .24em;
+  font-size: .68rem;
+  color: var(--caramel);
+}
+.eyebrow::before {
+  content: "";
+  width: 30px;
+  height: 1px;
+  background: var(--caramel);
+}
+.hero h1 {
+  font: 500 clamp(4.3rem, 10vw, 9rem)/.82 var(--serif);
+  letter-spacing: -.045em;
+  margin: 32px 0;
+  animation: rise .9s .2s both;
+}
+.hero h1 em { color: var(--caramel); font-weight: 400; }
+.hero-description {
+  max-width: 390px;
+  font-size: .88rem;
+  line-height: 1.9;
+  color: #d0c0af;
+  margin-bottom: 30px;
+  animation: rise .9s .4s both;
+}
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn {
+  min-height: 49px;
+  padding: 0 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: .75rem;
+  letter-spacing: .04em;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform .3s, background .3s, color .3s;
+}
+.btn:hover { transform: translateY(-3px); }
+.btn-primary { background: var(--cream); color: var(--dark); }
+.btn-primary:hover { background: var(--caramel); }
+.btn-outline { border-color: rgba(244,235,221,.4); }
+.btn-outline:hover { background: rgba(244,235,221,.1); }
+.play { font-size: 1rem; }
+.hero-meta {
+  display: flex;
+  gap: 22px;
+  margin-top: 52px;
+  color: var(--muted);
+  font-size: .67rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.hero-meta span + span::before {
+  content: "•";
+  color: var(--caramel);
+  margin-right: 22px;
+}
+.scroll-note {
+  position: absolute;
+  right: 6%;
+  bottom: 85px;
+  writing-mode: vertical-rl;
+  font-size: .6rem;
+  letter-spacing: .2em;
+  color: var(--muted);
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* SHARED SECTIONS */
+section { padding: 110px 9%; }
+.section-top {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 25px;
+  margin-bottom: 48px;
+}
+.kicker {
+  color: var(--caramel);
+  text-transform: uppercase;
+  font-size: .65rem;
+  letter-spacing: .24em;
+  margin-bottom: 17px;
+}
+.section-title {
+  font: 500 clamp(2.6rem, 5vw, 4.5rem)/.98 var(--serif);
+  letter-spacing: -.025em;
+}
+.section-title em { color: var(--caramel); }
+.section-note {
+  max-width: 290px;
+  color: var(--muted);
+  font-size: .78rem;
+  line-height: 1.9;
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* FILM STORY */
+.story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9%;
+  align-items: center;
+}
+.story-visual {
+  position: relative;
+  min-height: 500px;
+  overflow: hidden;
+}
+.story-visual img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  filter: sepia(.15) brightness(.8);
+  transition: transform .8s;
+}
+.story-visual:hover img { transform: scale(1.04); }
+.image-label {
+  position: absolute;
+  bottom: 22px;
+  left: 22px;
+  padding: 12px 15px;
+  background: rgba(40,27,22,.82);
+  font-size: .64rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.story-copy p {
+  color: var(--muted);
+  font-size: .86rem;
+  line-height: 2;
+  margin: 25px 0;
+}
+.story-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--line);
+  margin-top: 35px;
+}
+.detail { padding: 18px 0; border-bottom: 1px solid var(--line); }
+.detail small {
+  display: block;
+  font-size: .61rem;
+  letter-spacing: .13em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.detail strong { font-size: .78rem; font-weight: 500; }
+
+/* MARQUEE */
+.marquee {
+  padding: 23px 0;
+  overflow: hidden;
+  background: var(--brown);
+  border-top: 1px solid rgba(255,255,255,.1);
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+.marquee-track span {
+  font: 500 1.5rem var(--serif);
+  letter-spacing: .12em;
+  padding: 0 27px;
+  white-space: nowrap;
+}
+.marquee-track i { color: var(--caramel); font-style: normal; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* GALLERY */
+.gallery { background: #211712; }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr 1fr;
+  gap: 16px;
+}
+.gallery-item {
+  height: 320px;
+  position: relative;
+  overflow: hidden;
+  background: var(--dark2);
+}
+.gallery-item:nth-child(2) { margin-top: 42px; }
+.gallery-item:nth-child(3) { margin-top: 84px; }
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(.2) brightness(.78);
+  transition: transform .8s, filter .5s;
+}
+.gallery-item:hover img { transform: scale(1.07); filter: sepia(0) brightness(.95); }
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 35px 17px 17px;
+  background: linear-gradient(transparent, rgba(25,16,12,.9));
+  font: 500 1.4rem var(--serif);
+}
+
+/* CAST & CREW */
+.crew-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.crew-card {
+  padding: 28px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.015);
+  transition: border-color .3s, transform .3s;
+}
+.crew-card:hover { border-color: var(--caramel); transform: translateY(-5px); }
+.crew-number {
+  font: 500 2.5rem var(--serif);
+  color: var(--caramel);
+  margin-bottom: 28px;
+}
+.crew-card h3 { font: 500 1.7rem var(--serif); margin-bottom: 8px; }
+.crew-card p { color: var(--muted); font-size: .73rem; line-height: 1.8; }
+
+/* WATCH CTA */
+.watch-section {
+  padding: 0 9% 110px;
+}
+.watch-card {
+  position: relative;
+  overflow: hidden;
+  padding: 90px 30px;
+  text-align: center;
+  border: 1px solid rgba(244,235,221,.18);
+  background:
+    linear-gradient(rgba(40,27,22,.82), rgba(40,27,22,.93)),
+    url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1600&q=85")
+    center / cover;
+}
+.watch-card .section-title { margin-bottom: 20px; }
+.watch-card p {
+  color: var(--muted);
+  font-size: .8rem;
+  line-height: 1.8;
+  margin: 0 auto 28px;
+  max-width: 420px;
+}
+
+/* CONTACT */
+.contact {
+  background: var(--cream);
+  color: var(--dark);
+  padding: 85px 9%;
+}
+.contact .kicker { color: var(--brown); }
+.contact .section-title em { color: var(--brown); }
+.contact-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 30px;
+}
+.contact-copy {
+  max-width: 460px;
+  color: #735e4d;
+  line-height: 1.9;
+  font-size: .82rem;
+  margin-top: 20px;
+}
+.contact .btn-primary { background: var(--dark); color: var(--cream); }
+.contact .btn-primary:hover { background: var(--brown); }
+
+footer {
+  padding: 27px 9%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  color: var(--muted);
+  font-size: .66rem;
+}
+.footer-links { display: flex; gap: 20px; }
+.footer-links a:hover { color: var(--cream); }
+
+/* VIDEO MODAL */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: rgba(12,8,6,.94);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+}
+.modal.active { display: flex; animation: fadeIn .3s ease; }
+.modal-box { width: min(900px, 100%); }
+.modal-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  font: 500 1.5rem var(--serif);
+}
+.modal-close {
+  background: transparent;
+  color: var(--cream);
+  border: 1px solid var(--line);
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+.video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #100b08;
+}
+.video-frame iframe { width: 100%; height: 100%; border: 0; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* RESPONSIVE */
+@media (max-width: 760px) {
+  nav { height: 67px; padding: 0 5%; }
+  .logo { font-size: 1.35rem; }
+  .nav-links { gap: 13px; }
+  .nav-links a { font-size: .66rem; }
+  .nav-links a:not(.nav-cta) { display: none; }
+  .nav-cta { padding: 10px 12px; }
+  .hero {
+    min-height: 690px;
+    padding: 90px 7%;
+    align-items: center;
+  }
+  .hero::before {
+    background:
+      linear-gradient(90deg, rgba(24,16,12,.88), rgba(40,27,22,.4)),
+      linear-gradient(0deg, var(--dark), transparent 70%),
+      url("https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=1000&q=80")
+      center / cover;
+  }
+  .hero h1 { font-size: clamp(4.3rem, 17vw, 7rem); }
+  .hero-meta { gap: 10px; flex-wrap: wrap; }
+  .hero-meta span + span::before { margin-right: 10px; }
+  .scroll-note { display: none; }
+  section { padding: 78px 7%; }
+  .section-top { display: block; }
+  .section-note { margin-top: 20px; }
+  .story { grid-template-columns: 1fr; gap: 35px; }
+  .story-visual, .story-visual img { min-height: 340px; height: 340px; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .gallery-item { height: 240px; }
+  .gallery-item:nth-child(2), .gallery-item:nth-child(3) { margin-top: 0; }
+  .gallery-item:last-child { grid-column: 1 / -1; height: 270px; }
+  .crew-grid { grid-template-columns: 1fr; }
+  .crew-card { padding: 23px; }
+  .crew-number { margin-bottom: 12px; }
+  .watch-section { padding: 0 7% 78px; }
+  .watch-card { padding: 70px 20px; }
+  .contact { padding: 70px 7%; }
+  .contact-inner { align-items: start; flex-direction: column; }
+  footer { padding: 25px 7%; flex-direction: column; align-items: start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO ANIMATION -->
+<div class="intro" aria-hidden="true"><span>AFTERFRAME</span></div>
+
+<!-- NAVIGATION -->
+<nav>
+  <a class="logo" href="#home">AFTER<span>FRAME.</span></a>
+  <div class="nav-links">
+    <a href="#story">The Story</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#crew">The Team</a>
+    <a href="#watch" class="nav-cta">Watch Film ↗</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="home">
+  <div class="hero-content">
+    <div class="eyebrow">An Independent Short Film</div>
+    <h1>AFTER<br><em>FRAME.</em></h1>
+    <p class="hero-description">
+      Some stories end when the screen goes dark.
+      Others stay with us long after the final frame.
+      A short film about love, loss, and everything left unsaid.
+    </p>
+
+    <div class="hero-actions">
+      <button class="btn btn-primary" onclick="openTrailer()">
+        <span class="play">▶</span> WATCH TRAILER
+      </button>
+      <a href="#story" class="btn btn-outline">DISCOVER THE STORY ↘</a>
+    </div>
+
+    <div class="hero-meta">
+      <span>Short Film</span>
+      <span>Drama</span>
+      <span>2026</span>
+    </div>
+  </div>
+  <div class="scroll-note">SCROLL TO DISCOVER ↓</div>
+</header>
+
+<!-- STORY -->
+<section id="story">
+  <div class="story">
+    <div class="story-visual reveal">
+      <img
+        src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1000&q=85"
+        alt="Pemandangan laut sinematik"
+        loading="lazy">
+      <div class="image-label">A story told in silence</div>
+    </div>
+
+    <div class="story-copy reveal">
+      <div class="kicker">01 — The Story</div>
+      <h2 class="section-title">Not every goodbye<br>is <em>the end.</em></h2>
+
+      <p>
+        Di antara kenangan yang belum selesai dan kata-kata yang tak
+        pernah terucap, dua hati mencoba memahami arti kehilangan.
+        AFTERFRAME adalah kisah tentang momen-momen kecil yang sering
+        kita abaikan, sampai akhirnya menjadi hal yang paling kita rindukan.
+      </p>
+      <p>
+        Sebuah film pendek yang mengajak kita berhenti sejenak,
+        merasakan, dan melihat kembali cerita dari sudut pandang yang berbeda.
+      </p>
+
+      <div class="story-details">
+        <div class="detail">
+          <small>Genre</small><strong>Drama / Romance</strong>
+        </div>
+        <div class="detail">
+          <small>Duration</small><strong>15 Minutes</strong>
+        </div>
+        <div class="detail">
+          <small>Director</small><strong>Your Name</strong>
+        </div>
+        <div class="detail">
+          <small>Release</small><strong>2026</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CINEMATIC MARQUEE -->
+<div class="marquee" aria-label="Every frame tells a story">
+  <div class="marquee-track">
+    <span>EVERY FRAME TELLS A STORY <i>✳</i></span>
+    <span>MADE WITH FEELING <i>✳</i></span>
+    <span>STORIES THAT STAY <i>✳</i></span>
+    <span>EVERY FRAME TELLS A STORY <i>✳</i></span>
+    <span>MADE WITH FEELING <i>✳</i></span>
+    <span>STORIES THAT STAY <i>✳</i></span>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="section-top reveal">
+    <div>
+      <div class="kicker">02 — Behind The Frames</div>
+      <h2 class="section-title">Moments in <em>motion.</em></h2>
+    </div>
+    <p class="section-note">
+      A glimpse into the atmosphere, the characters,
+      and the little moments behind the film.
+    </p>
+  </div>
+
+  <div class="gallery-grid">
+    <div class="gallery-item reveal">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80"
+        alt="Pemandangan film" loading="lazy">
+      <div class="gallery-caption">The Beginning</div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=800&q=80"
+        alt="Cahaya matahari keemasan" loading="lazy">
+      <div class="gallery-caption">Golden Hours</div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=800&q=80"
+        alt="Langit senja" loading="lazy">
+      <div class="gallery-caption">The Afterglow</div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="crew">
+  <div class="section-top reveal">
+    <div>
+      <div class="kicker">03 — The People Behind It</div>
+      <h2 class="section-title">Made by people,<br><em>for people.</em></h2>
+    </div>
+    <p class="section-note">
+      Every frame is a collaboration.
+      Meet the people who brought this story to life.
+    </p>
+  </div>
+
+  <div class="crew-grid">
+    <article class="crew-card reveal">
+      <div class="crew-number">01</div>
+      <h3>Your Name</h3>
+      <p>Director & Writer<br>The vision behind the story.</p>
+    </article>
+    <article class="crew-card reveal">
+      <div class="crew-number">02</div>
+      <h3>Actor Name</h3>
+      <p>Lead Actor<br>The soul of the character.</p>
+    </article>
+    <article class="crew-card reveal">
+      <div class="crew-number">03</div>
+      <h3>Team Name</h3>
+      <p>Production & Cinematography<br>The eyes behind each frame.</p>
+    </article>
+  </div>
+</section>
+
+<!-- WATCH FILM -->
+<section class="watch-section" id="watch">
+  <div class="watch-card reveal">
+    <div class="kicker">04 — The Film Awaits</div>
+    <h2 class="section-title">Ready to feel<br><em>something real?</em></h2>
+    <p>
+      Take a moment. Put your headphones on.
+      Let the story find you.
+    </p>
+    <div class="hero-actions" style="justify-content:center">
+      <button class="btn btn-primary" onclick="openTrailer()">
+        ▶ WATCH THE TRAILER
+      </button>
+      <a class="btn btn-outline" id="filmLink"
+        href="https://www.youtube.com/" target="_blank"
+        rel="noopener noreferrer">FULL FILM ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="kicker">05 — Let's Connect</div>
+      <h2 class="section-title">Your story.<br><em>Our next frame.</em></h2>
+      <p class="contact-copy">
+        For collaborations, screenings, film festivals, press inquiries,
+        or simply to share what the film means to you — we'd love to hear from you.
+      </p>
+    </div>
+    <a class="btn btn-primary" id="emailLink"
+      href="mailto:hello@example.com">GET IN TOUCH ↗</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a class="logo" href="#home">AFTER<span>FRAME.</span></a>
+  <span>© <span id="year"></span> AFTERFRAME FILMS. MADE WITH FEELING.</span>
+  <div class="footer-links">
+    <a id="instagramLink" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+    <a id="tiktokLink" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">TikTok ↗</a>
+    <a id="youtubeLink" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+  </div>
+</footer>
+
+<!-- TRAILER MODAL -->
+<div class="modal" id="trailerModal" role="dialog"
+  aria-modal="true" aria-label="Film trailer" onclick="backdropClose(event)">
+  <div class="modal-box">
+    <div class="modal-top">
+      <span>AFTERFRAME — Official Trailer</span>
+      <button class="modal-close" onclick="closeTrailer()" aria-label="Close trailer">×</button>
+    </div>
+    <div class="video-frame">
+      <iframe id="trailerVideo" src=""
+        title="Film trailer" allow="autoplay; encrypted-media; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+/* =========================================
+   AFTERFRAME — WEBSITE CONFIGURATION
+   Ganti informasi di bagian ini saja.
+========================================= */
+
+const CONFIG = {
+  // Masukkan ID video YouTube, bukan seluruh URL.
+  // Contoh URL: https://www.youtube.com/watch?v=ABC123xyz
+  // Video ID: ABC123xyz
+  trailerId: "YOUR_TRAILER_VIDEO_ID",
+
+  // URL film lengkap atau platform tempat film ditayangkan
+  filmUrl: "https://www.youtube.com/",
+
+  // Kontak email produksi
+  email: "hello@example.com",
+
+  // Akun media sosial
+  instagram: "https://www.instagram.com/",
+  tiktok: "https://www.tiktok.com/",
+  youtube: "https://www.youtube.com/"
+};
+
+/* APPLY CONFIG */
+document.getElementById("filmLink").href = CONFIG.filmUrl;
+document.getElementById("emailLink").href = "mailto:" + CONFIG.email;
+document.getElementById("instagramLink").href = CONFIG.instagram;
+document.getElementById("tiktokLink").href = CONFIG.tiktok;
+document.getElementById("youtubeLink").href = CONFIG.youtube;
+document.getElementById("year").textContent = new Date().getFullYear();
+
+/* TRAILER MODAL */
+const modal = document.getElementById("trailerModal");
+const video = document.getElementById("trailerVideo");
+
+function openTrailer() {
+  if (!CONFIG.trailerId ||
+      CONFIG.trailerId === "YOUR_TRAILER_VIDEO_ID") {
+    alert("Trailer belum diatur. Silakan masukkan ID video YouTube di bagian CONFIG.");
+    return;
+  }
+
+  video.src = "https://www.youtube-nocookie.com/embed/" +
+    encodeURIComponent(CONFIG.trailerId) + "?autoplay=1&rel=0";
+
+  modal.classList.add("active");
+  document.body.style.overflow = "hidden";
+  modal.querySelector(".modal-close").focus();
+}
+
+function closeTrailer() {
+  modal.classList.remove("active");
+  video.src = "";
+  document.body.style.overflow = "";
+}
+
+function backdropClose(event) {
+  if (event.target === modal) closeTrailer();
+}
+
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Escape") closeTrailer();
+});
+
+/* SCROLL REVEAL ANIMATION */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".reveal").forEach((element, index) => {
+  element.style.transitionDelay = (index % 3) * 100 + "ms";
+  revealObserver.observe(element);
+});
+</script>
+
+</body>
+</html>
