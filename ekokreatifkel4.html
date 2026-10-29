@@ -528,47 +528,49 @@ document.addEventListener("keydown", function(event) {
    Menggunakan tautan profil agar tidak ada tautan video palsu.
    Thumbnail memakai poster-main.png yang sudah digunakan website.
 */
+
 const GALLERY_VIDEOS = {
   tiktok: [
     {
       title: "TikTok — Video 01",
       description: "Ikuti perjalanan film kami.",
-      url: "https://www.tiktok.com/@ekokreatifkel4/video/7696153946854952212?is_from_webapp=1&sender_device=pc&web_id=7701953868267832852",
+      url: "https://www.tiktok.com/@ekokreatifkel4/video/7696153946854952212",
       thumbnail: "thumb-01.jpeg"
     },
     {
       title: "TikTok — Video 02",
       description: "Cerita di balik layar.",
-      url: "https://www.tiktok.com/@ekokreatifkel4/video/7699452672490900757?is_from_webapp=1&sender_device=pc&web_id=7701953868267832852",
+      url: "https://www.tiktok.com/@ekokreatifkel4/video/7699452672490900757",
       thumbnail: "thumb-02.jpeg"
     },
     {
       title: "TikTok — Video 03",
-      description: "Momen bersama para pemain.",
+      description: "Video ketiga segera hadir!",
       url: "https://www.tiktok.com/@ekokreatifkel4",
-      thumbnail: "poster-main.png"
-      platform: "tiktok",
+      thumbnail: "poster-main.png",
       comingSoon: true
     }
   ],
+
   instagram: [
     {
       title: "Reels — Video 01",
       description: "Momen perjalanan produksi.",
-      url: "https://www.instagram.com/reel/Deb_0b_hg2X/?obrf=eWVtNDJzaTZrdzht",
+      url: "https://www.instagram.com/reel/Deb_0b_hg2X/",
       thumbnail: "thumb-04.jpeg"
     },
     {
       title: "Reels — Video 02",
       description: "Kenangan di balik layar.",
-      url: "https://www.instagram.com/reel/DeyuGlnhiEt/?mdxt=MW15MjhnNHN4dGl4ag==",
+      url: "https://www.instagram.com/reel/DeyuGlnhiEt/",
       thumbnail: "thumb-05.jpeg"
     },
     {
       title: "Reels — Video 03",
-      description: "Ikuti kisah kami di Instagram.",
+      description: "Reels ketiga segera hadir!",
       url: "https://www.instagram.com/sk4film_/",
-      thumbnail: "poster-film.png"
+      thumbnail: "poster-film.png",
+      comingSoon: true
     }
   ]
 };
@@ -591,10 +593,20 @@ function renderVideoGallery(videos, containerId, platform) {
     const thumb = document.createElement("div");
     thumb.className = "video-thumb";
 
-    const img = document.createElement("img");
-    img.src = item.thumbnail;
-    img.alt = item.title;
-    img.loading = "lazy";
+   
+const img = document.createElement("img");
+
+img.src = item.thumbnail;
+img.alt = item.title;
+img.loading = "lazy";
+
+// Jika thumbnail gagal dimuat, gunakan poster cadangan.
+img.onerror = function () {
+  if (!this.src.endsWith("/poster-main.png")) {
+    this.onerror = null;
+    this.src = "poster-main.png";
+  }
+};
 
     const overlay = document.createElement("div");
     overlay.className = "video-overlay";
