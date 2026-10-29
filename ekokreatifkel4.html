@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#281b16">
-<meta name="description" content="SEBELUM KITA SELESAI ">
+<meta name="description" content="SEBELUM KITA SELESAI — Short Film Production">
 <title>SEBELUM KITA SELESAI — Short Film Production</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -80,21 +80,15 @@ nav{min-height:82px;padding:14px 7%;display:flex;align-items:center;justify-cont
 .scroll-note{position:absolute;right:5%;bottom:75px;writing-mode:vertical-rl;font-size:.72rem;letter-spacing:.18em;color:var(--muted)}
 @keyframes rise{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
 
-/* BACKGROUND BAGIAN KONTEN: COKELAT SINEMATIK SENADA DENGAN POSTER */
 section{
   padding:105px 9%;
-  background:
-    linear-gradient(180deg,rgba(53,37,29,.36),rgba(40,27,22,.96));
+  background:linear-gradient(180deg,rgba(53,37,29,.36),rgba(40,27,22,.96));
 }
 #story{
-  background:
-    radial-gradient(ellipse at 12% 45%,rgba(118,82,61,.20),transparent 48%),
-    linear-gradient(180deg,#302119 0%,#281b16 100%);
+  background:radial-gradient(ellipse at 12% 45%,rgba(118,82,61,.20),transparent 48%),linear-gradient(180deg,#302119 0%,#281b16 100%);
 }
 #crew{
-  background:
-    radial-gradient(ellipse at 85% 25%,rgba(118,82,61,.20),transparent 46%),
-    linear-gradient(180deg,#302119 0%,#281b16 100%);
+  background:radial-gradient(ellipse at 85% 25%,rgba(118,82,61,.20),transparent 46%),linear-gradient(180deg,#302119 0%,#281b16 100%);
 }
 .section-top{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:48px}
 .kicker{color:var(--caramel);text-transform:uppercase;font-size:.77rem;letter-spacing:.2em;margin-bottom:17px}
@@ -128,10 +122,67 @@ section{
 .crew-card h3{font:500 1.9rem var(--serif);margin-bottom:10px}
 .crew-card p{color:var(--muted);font-size:.95rem;line-height:1.9}
 
-.watch-section{
-  padding:0 9% 105px;
-  background:linear-gradient(180deg,#281b16,#302119);
+/* GALERI VIDEO TIKTOK & INSTAGRAM */
+.video-gallery{
+  background:
+    radial-gradient(ellipse at 50% 20%,rgba(118,82,61,.22),transparent 55%),
+    linear-gradient(180deg,#302119 0%,#281b16 100%);
 }
+.gallery-heading{margin-bottom:45px}
+.gallery-heading .section-note{margin-top:20px}
+.video-platform{margin-bottom:42px}
+.platform-heading{
+  display:flex;align-items:center;gap:13px;
+  margin-bottom:22px;padding-bottom:15px;
+  border-bottom:1px solid var(--line);
+}
+.platform-heading h3{font:500 1.8rem var(--serif)}
+.platform-heading span{
+  color:var(--caramel);font-size:.72rem;
+  letter-spacing:.1em;text-transform:uppercase;
+}
+.video-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.video-card{
+  min-width:0;overflow:hidden;
+  border:1px solid rgba(199,167,137,.2);
+  background:rgba(255,255,255,.025);
+  transition:transform .35s,border-color .35s;
+}
+.video-card:hover{transform:translateY(-6px);border-color:var(--caramel)}
+.video-link{display:block}
+.video-thumb{
+  position:relative;aspect-ratio:9/16;overflow:hidden;
+  background:linear-gradient(145deg,#513727,#211611);
+}
+.video-thumb img{
+  width:100%;height:100%;object-fit:contain;
+  transition:transform .6s,opacity .3s;
+}
+.video-card:hover .video-thumb img{transform:scale(1.04);opacity:.82}
+.video-overlay{
+  position:absolute;inset:0;display:flex;
+  align-items:center;justify-content:center;
+  background:linear-gradient(180deg,rgba(20,12,8,.08),transparent 45%,rgba(20,12,8,.7));
+}
+.video-play{
+  width:54px;height:54px;display:grid;place-items:center;
+  border:1px solid rgba(244,235,221,.8);border-radius:50%;
+  background:rgba(40,27,22,.6);color:var(--cream);
+  font-size:1.2rem;transition:background .3s,color .3s,transform .3s;
+}
+.video-card:hover .video-play{background:var(--caramel);color:var(--dark);transform:scale(1.08)}
+.video-platform-badge{
+  position:absolute;top:13px;left:13px;
+  padding:8px 10px;background:rgba(33,22,16,.9);
+  border:1px solid rgba(244,235,221,.2);
+  color:var(--cream);font-size:.68rem;letter-spacing:.08em;
+}
+.video-caption{padding:16px 15px 19px}
+.video-caption h4{font:500 1.35rem var(--serif);margin-bottom:7px}
+.video-caption p{color:var(--muted);font-size:.82rem;line-height:1.7}
+.video-open-note{display:inline-block;margin-top:13px;color:var(--caramel);font-size:.72rem;letter-spacing:.06em}
+
+.watch-section{padding:0 9% 105px;background:linear-gradient(180deg,#281b16,#302119)}
 .watch-card{position:relative;overflow:hidden;padding:95px 30px;text-align:center;border:1px solid rgba(244,235,221,.18);background:linear-gradient(rgba(40,27,22,.78),rgba(40,27,22,.92)),url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1600&q=85") center/cover}
 .watch-card .section-title{margin-bottom:22px}
 .watch-card p{color:var(--muted);font-size:1.02rem;line-height:1.9;margin:0 auto 30px;max-width:480px}
@@ -185,6 +236,11 @@ footer{padding:28px 9%;display:flex;align-items:center;justify-content:space-bet
   .crew-grid{grid-template-columns:1fr}
   .crew-card{padding:25px}
   .crew-number{margin-bottom:12px}
+  .video-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+  .video-caption{padding:13px 11px 16px}
+  .video-caption h4{font-size:1.2rem}
+  .video-caption p{font-size:.78rem}
+  .video-play{width:46px;height:46px}
   .watch-section{padding:0 7% 76px}
   .watch-card{padding:70px 20px}
   .contact{padding:70px 7%}
@@ -198,6 +254,8 @@ footer{padding:28px 9%;display:flex;align-items:center;justify-content:space-bet
   .social-icon{width:32px;height:32px}
   .social-icon svg{width:16px;height:16px}
   .btn{padding:12px 15px;font-size:.85rem}
+  .video-grid{gap:9px}
+  .video-caption{padding:11px 9px 13px}
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
@@ -221,26 +279,16 @@ footer{padding:28px 9%;display:flex;align-items:center;justify-content:space-bet
     </svg>
     <span class="logo">SEBELUM KITA<span>SELESAI.</span></span>
   </a>
-
   <div class="header-right">
     <span class="header-label">Follow our journey</span>
-    <a class="social-icon" id="instagramTop" href="https://www.instagram.com/sk4film_" target="_blank" rel="noopener noreferrer" aria-label="Instagram SEBELUM KITA SELESAI" title="Instagram">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <rect x="3" y="3" width="18" height="18" rx="5"/>
-        <circle cx="12" cy="12" r="4"/>
-        <circle cx="17.5" cy="6.8" r=".8" fill="currentColor" stroke="none"/>
-      </svg>
+    <a class="social-icon" id="instagramTop" href="https://www.instagram.com/sk4film_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.8" r=".8" fill="currentColor" stroke="none"/></svg>
     </a>
-    <a class="social-icon" id="tiktokTop" href="https://www.tiktok.com/@ekokreatifkel4" target="_blank" rel="noopener noreferrer" aria-label="TikTok SEBELUM KITA SELESAI" title="TikTok">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M14 3V15.2A4.2 4.2 0 1 1 10 11"/>
-        <path d="M14 3C14.5 6.5 17 8.5 21 8.8"/>
-      </svg>
+    <a class="social-icon" id="tiktokTop" href="https://www.tiktok.com/@ekokreatifkel4" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3V15.2A4.2 4.2 0 1 1 10 11"/><path d="M14 3C14.5 6.5 17 8.5 21 8.8"/></svg>
     </a>
-    <a class="social-icon youtube" id="youtubeTop" href="https://www.youtube.com/@skselesaiproject" target="_blank" rel="noopener noreferrer" aria-label="YouTube SEBELUM KITA SELESAI" title="YouTube">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 23.5 12a31 31 0 0 0-.5-4.8ZM9.7 15.3V8.7l6 3.3-6 3.3Z"/>
-      </svg>
+    <a class="social-icon youtube" id="youtubeTop" href="https://www.youtube.com/@skselesaiproject" target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 23.5 12a31 31 0 0 0-.5-4.8ZM9.7 15.3V8.7l6 3.3-6 3.3Z"/></svg>
     </a>
   </div>
 </nav>
@@ -251,14 +299,14 @@ footer{padding:28px 9%;display:flex;align-items:center;justify-content:space-bet
     <div class="eyebrow">An Independent Short Film</div>
     <h1>SEBELUM KITA<br><em>SELESAI.</em></h1>
     <p class="hero-description">
-      Empat mahasiswa yang merintis usaha bersama 
-      perlahan mulai menjauh dari hal-hal kecil 
-      yang dahulu menyatukan mereka. Di tengah kesibukan, 
+      Empat mahasiswa yang merintis usaha bersama
+      perlahan mulai menjauh dari hal-hal kecil
+      yang dahulu menyatukan mereka. Di tengah kesibukan,
       ambisi, dan perubahan hubungan, rekaman-rekaman
       sederhana yang dulu dianggap mengganggu perlahan
-      menyimpan makna yang tak pernah mereka sadari. 
-      Hingga akhirnya, mereka menyadari bahwa 
-      momen-momen kecil yang pernah terabadikan 
+      menyimpan makna yang tak pernah mereka sadari.
+      Hingga akhirnya, mereka menyadari bahwa
+      momen-momen kecil yang pernah terabadikan
       justru menjadi kenangan paling berharga.
     </p>
     <div class="actions">
@@ -266,11 +314,7 @@ footer{padding:28px 9%;display:flex;align-items:center;justify-content:space-bet
       <a href="#story" class="btn btn-outline">JELAJAHI CERITA ↘</a>
     </div>
     <div class="hero-meta">
-      <span>Short Film</span>
-      <span>Drama</span>
-      <span>Friendship</span>
-      <span>Mystery</span>
-      <span>Romance</span>
+      <span>Short Film</span><span>Drama</span><span>Friendship</span><span>Mystery</span><span>Romance</span>
     </div>
   </div>
   <div class="scroll-note">SCROLL TO DISCOVER ↓</div>
@@ -280,7 +324,7 @@ footer{padding:28px 9%;display:flex;align-items:center;justify-content:space-bet
 <section id="story">
   <div class="story">
     <div class="story-visual reveal">
-      <img src="poster-main.png" loading="lazy">
+      <img src="poster-main.png" loading="lazy" alt="Poster film Sebelum Kita Selesai">
       <div class="image-label">A story told in silence</div>
     </div>
     <div class="story-copy reveal">
@@ -303,14 +347,15 @@ footer{padding:28px 9%;display:flex;align-items:center;justify-content:space-bet
   <div class="marquee-track">
     <span>EVERY FRAME HAS A STORY <i>🍁</i></span>
     <span>EVERY DAY IS A MEMORY <i>🍁</i></span>
-    <span>EVERY ENDING LEAVES SOMETHING  <i>🍁</i></span>
+    <span>EVERY ENDING LEAVES SOMETHING <i>🍁</i></span>
     <span>EVERY FRAME HAS A STORY <i>🍁</i></span>
     <span>EVERY DAY IS A MEMORY <i>🍁</i></span>
-    <span>EVERY ENDING LEAVES SOMETHINGY <i>🍁</i></span>
+    <span>EVERY ENDING LEAVES SOMETHING <i>🍁</i></span>
   </div>
 </div>
 
-<!-- BAGIAN 02 DIHAPUS SESUAI PERMINTAAN -->
+<!-- BAGIAN 02 TETAP DIHAPUS SESUAI PERMINTAAN -->
+
 <!-- BAGIAN 03: THE PEOPLE BEHIND IT -->
 <section id="crew">
   <div class="section-top reveal">
@@ -320,31 +365,45 @@ footer{padding:28px 9%;display:flex;align-items:center;justify-content:space-bet
     </div>
     <p class="section-note">Setiap karya adalah hasil kolaborasi. Kenali orang-orang di balik layar SEBELUM KITA SELESAI.</p>
   </div>
-
   <div class="crew-grid">
     <article class="crew-card reveal">
       <div class="crew-number">01</div>
       <h3>STKIP PGRI LUMAJANG</h3>
       <p>Dosen Pengampu: Dr. Dwi Yanuarindah Putri, S.Pd., M.Pd<br>Proyek film pendek sebagai bagian dari tugas mata kuliah Ekonomi Kreatif dan Ekonomi Bisnis dan Digital.</p>
     </article>
-
     <article class="crew-card reveal">
       <div class="crew-number">02</div>
       <h3>Nama Pemain</h3>
-      <p>
-        1. Achmad Rofi'i sebagai Rofi<br>
-        2. Raffael Aries Arjuna sebagai Raffael<br>
-        3. Putri Nabiilah Khoriyyah sebagai Nabiilah<br>
-        4. Ilmia Amanda sebagai Amanda<br>
-        Menghadirkan emosi dan jiwa karakter.
-      </p>
+      <p>1. Achmad Rofi'i sebagai Rofi<br>2. Raffael Aries Arjuna sebagai Raffael<br>3. Putri Nabiilah Khoriyyah sebagai Nabiilah<br>4. Ilmia Amanda sebagai Amanda<br>Menghadirkan emosi dan jiwa karakter.</p>
     </article>
-
     <article class="crew-card reveal">
       <div class="crew-number">03</div>
       <h3>KELOMPOK 4 / 2024 B</h3>
       <p>Production &amp; Cinematography<br>Mengabadikan cerita melalui setiap frame.</p>
     </article>
+  </div>
+</section>
+
+<!-- BAGIAN 05: GALERI VIDEO -->
+<section class="video-gallery" id="gallery">
+  <div class="gallery-heading reveal">
+    <div class="kicker">05 — Behind The Scenes</div>
+    <h2 class="section-title">Every moment,<br>another <em>memory.</em></h2>
+    <p class="section-note">Potongan cerita, keseruan di balik layar, dan kenangan dari perjalanan SEBELUM KITA SELESAI.</p>
+  </div>
+
+  <div class="video-platform reveal">
+    <div class="platform-heading">
+      <h3>TikTok</h3><span>Our Journey</span>
+    </div>
+    <div class="video-grid" id="tiktokGallery"></div>
+  </div>
+
+  <div class="video-platform reveal">
+    <div class="platform-heading">
+      <h3>Instagram Reels</h3><span>Our Memories</span>
+    </div>
+    <div class="video-grid" id="instagramGallery"></div>
   </div>
 </section>
 
@@ -367,12 +426,7 @@ footer{padding:28px 9%;display:flex;align-items:center;justify-content:space-bet
     <div>
       <div class="kicker">Final Screening</div>
       <h2 class="section-title">Your Support.<br><em>Our Film.</em></h2>
-      <p class="contact-copy">
-        Terima kasih telah mengikuti perjalanan Sebelum Kita Selesai,
-        mendukung proses kreatif kami, dan menjadi bagian dari terwujudnya
-        proyek film ini. Dukungan, waktu, dan apresiasi yang diberikan sangat berarti bagi kami.
-        Saksikan penayangan final SEBELUM KITA SELESAI dan jadilah bagian dari cerita yang telah kami rangkai bersama.
-      </p>
+      <p class="contact-copy">Terima kasih telah mengikuti perjalanan Sebelum Kita Selesai, mendukung proses kreatif kami, dan menjadi bagian dari terwujudnya proyek film ini. Dukungan, waktu, dan apresiasi yang diberikan sangat berarti bagi kami. Saksikan penayangan final SEBELUM KITA SELESAI dan jadilah bagian dari cerita yang telah kami rangkai bersama.</p>
     </div>
     <a class="btn btn-primary" id="supportLink" href="https://www.youtube.com/@skselesaiproject" target="_blank" rel="noopener noreferrer">SUPPORT KAMI ↗</a>
   </div>
@@ -392,7 +446,7 @@ footer{padding:28px 9%;display:flex;align-items:center;justify-content:space-bet
   </a>
   <span>© <span id="year"></span> SK4FILM_</span>
   <div class="footer-links">
-    <a id="instagramFooter" href="https://www.instagram.com/sk4film_" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+    <a id="instagramFooter" href="https://www.instagram.com/sk4film_/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
     <a id="tiktokFooter" href="https://www.tiktok.com/@ekokreatifkel4" target="_blank" rel="noopener noreferrer">TikTok ↗</a>
     <a id="youtubeFooter" href="https://www.youtube.com/@skselesaiproject/" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
   </div>
@@ -447,17 +501,11 @@ const video = document.getElementById("trailerVideo");
 
 function openTrailer() {
   const trailerId = CONFIG.trailerId;
-
-  if (!trailerId || trailerId === "YOUR_TRAILER_VIDEO_ID") {
+  if (!trailerId) {
     alert("ID trailer belum diisi.");
     return;
   }
-
-  video.src =
-    "https://www.youtube.com/embed/" +
-    trailerId +
-    "?autoplay=1&rel=0";
-
+  video.src = "https://www.youtube.com/embed/" + trailerId + "?autoplay=1&rel=0";
   modal.classList.add("active");
   document.body.style.overflow = "hidden";
 }
@@ -475,6 +523,120 @@ function backdropClose(event) {
 document.addEventListener("keydown", function(event) {
   if (event.key === "Escape") closeTrailer();
 });
+
+/* GALERI VIDEO: 3 TIKTOK + 3 INSTAGRAM REELS
+   Menggunakan tautan profil agar tidak ada tautan video palsu.
+   Thumbnail memakai poster-main.png yang sudah digunakan website.
+*/
+const GALLERY_VIDEOS = {
+  tiktok: [
+    {
+      title: "TikTok — Video 01",
+      description: "Ikuti perjalanan film kami.",
+      url: "https://www.tiktok.com/@ekokreatifkel4",
+      thumbnail: "poster-main.png"
+    },
+    {
+      title: "TikTok — Video 02",
+      description: "Cerita di balik layar.",
+      url: "https://www.tiktok.com/@ekokreatifkel4",
+      thumbnail: "poster-main.png"
+    },
+    {
+      title: "TikTok — Video 03",
+      description: "Momen bersama para pemain.",
+      url: "https://www.tiktok.com/@ekokreatifkel4",
+      thumbnail: "poster-main.png"
+    }
+  ],
+  instagram: [
+    {
+      title: "Reels — Video 01",
+      description: "Momen perjalanan produksi.",
+      url: "https://www.instagram.com/sk4film_/",
+      thumbnail: "poster-main.png"
+    },
+    {
+      title: "Reels — Video 02",
+      description: "Kenangan di balik layar.",
+      url: "https://www.instagram.com/sk4film_/",
+      thumbnail: "poster-main.png"
+    },
+    {
+      title: "Reels — Video 03",
+      description: "Ikuti kisah kami di Instagram.",
+      url: "https://www.instagram.com/sk4film_/",
+      thumbnail: "poster-main.png"
+    }
+  ]
+};
+
+function renderVideoGallery(videos, containerId, platform) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  videos.forEach(function(item) {
+    const card = document.createElement("article");
+    card.className = "video-card";
+
+    const link = document.createElement("a");
+    link.className = "video-link";
+    link.href = item.url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.setAttribute("aria-label", "Buka " + item.title + " di " + platform);
+
+    const thumb = document.createElement("div");
+    thumb.className = "video-thumb";
+
+    const img = document.createElement("img");
+    img.src = item.thumbnail;
+    img.alt = item.title;
+    img.loading = "lazy";
+
+    const overlay = document.createElement("div");
+    overlay.className = "video-overlay";
+
+    const play = document.createElement("span");
+    play.className = "video-play";
+    play.textContent = "▶";
+    play.setAttribute("aria-hidden", "true");
+
+    const badge = document.createElement("span");
+    badge.className = "video-platform-badge";
+    badge.textContent = platform;
+
+    overlay.appendChild(play);
+    thumb.appendChild(img);
+    thumb.appendChild(overlay);
+    thumb.appendChild(badge);
+
+    const caption = document.createElement("div");
+    caption.className = "video-caption";
+
+    const heading = document.createElement("h4");
+    heading.textContent = item.title;
+
+    const description = document.createElement("p");
+    description.textContent = item.description;
+
+    const note = document.createElement("span");
+    note.className = "video-open-note";
+    note.textContent = "BUKA VIDEO ↗";
+
+    caption.appendChild(heading);
+    caption.appendChild(description);
+    caption.appendChild(note);
+
+    link.appendChild(thumb);
+    link.appendChild(caption);
+    card.appendChild(link);
+    container.appendChild(card);
+  });
+}
+
+renderVideoGallery(GALLERY_VIDEOS.tiktok, "tiktokGallery", "TikTok");
+renderVideoGallery(GALLERY_VIDEOS.instagram, "instagramGallery", "Instagram Reels");
 
 /* ANIMASI SAAT SCROLL */
 if ("IntersectionObserver" in window) {
@@ -499,4 +661,3 @@ if ("IntersectionObserver" in window) {
 </script>
 </body>
 </html>
-```
